@@ -15,10 +15,6 @@ app.use(bodyParser.json())
 const appRoute = require('./src/routes/route-karyawan');
 app.use('/', appRoute);
 
-app.set('port', (process.env.PORT || 8080));
-app.listen(app.get('port'), ()=>{
-    console.log('Server Berjalan di Port : ', app.get('port'));
-});
 
 var refreshTokensDB = [];		// to store the refresh tokens when they are generated.
 
@@ -154,4 +150,9 @@ app.delete('/delRefreshToken', (req,res) => {
 		res.json({ message: 'Refresh token deleted successfully' });
 	}
 	
+});
+
+app.set('port', (process.env.PORT || 8080));
+app.listen(app.get('port'), function(){
+    console.log('Server Berjalan di Port : ', app.get('port'));
 });
