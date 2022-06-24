@@ -11,5 +11,4 @@ app.use('/', appRoute);
 app.set('port', (process.env.PORT || 8080));
 app.listen(app.get('port'), ()=>{
     console.log('Server Berjalan di Port : ', app.get('port'));
-
 });
